@@ -39,6 +39,12 @@ export default Vue.extend({
         (this.$refs.input as any).$children[0].focus();
         return;
       }
+      // this.$axios.post('/api/auth/login', {
+      //   password: md5(this.pwd)
+      // }).catch(err => {
+      //   console.error(err);
+      //   this.$message.error('密码不正确11111！');
+      // });
       this.$auth
         .loginWith('local', {
           data: {

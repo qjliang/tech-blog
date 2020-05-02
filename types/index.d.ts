@@ -33,6 +33,8 @@ export interface IResp {
 
     /** 错误消息 */
     message?: string;
+
+    [keyName: string]: any
 }
 
 declare module 'vue/types/vue' {

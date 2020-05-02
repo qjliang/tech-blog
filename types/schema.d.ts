@@ -1,4 +1,6 @@
-import { Document } from 'mongoose';
+interface Document {
+    [keyname: string]: any
+}
 
 export interface IAuth extends Document {
     _id: string;

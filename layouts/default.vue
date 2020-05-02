@@ -74,14 +74,14 @@ export default Vue.extend({
     };
   },
   mounted () {
-    if (this.settings.enableStatistics && this.settings.statisticsKey) {
-      const hm = document.createElement('script');
-      hm.src = `https://hm.baidu.com/hm.js?${this.settings.statisticsKey}`;
-      const script = document.getElementsByTagName('script')[0];
-      if (script && script.parentNode) {
-        script.parentNode.insertBefore(hm, script);
-      }
-    }
+    // if (this.settings.enableStatistics && this.settings.statisticsKey) {
+    //   const hm = document.createElement('script');
+    //   hm.src = `https://hm.baidu.com/hm.js?${this.settings.statisticsKey}`;
+    //   const script = document.getElementsByTagName('script')[0];
+    //   if (script && script.parentNode) {
+    //     script.parentNode.insertBefore(hm, script);
+    //   }
+    // }
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {

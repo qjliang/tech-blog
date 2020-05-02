@@ -1,19 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { Configuration } from '@nuxt/types/index';
-import blogConfig from './blog.config';
 
-const server: any = {
-  host: blogConfig.host,
-  port: blogConfig.port,
-  timing: true
-};
-if (blogConfig.enableHTTPS) {
-  server.https = {
-    key: fs.readFileSync(path.resolve(__dirname, 'ssl', 'server.key')),
-    cert: fs.readFileSync(path.resolve(__dirname, 'ssl', 'server.crt'))
-  };
-}
+import { Configuration } from '@nuxt/types/index';
+
 const config: Configuration = {
   mode: 'universal',
   /*
@@ -32,8 +19,6 @@ const config: Configuration = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  server,
-  serverMiddleware: ['@/server/api'],
   /*
    ** Customize the progress-bar color
    */
@@ -50,7 +35,7 @@ const config: Configuration = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '@/plugins/axios', mode: 'server' },
+    { src: '@/plugins/axios', mode: 'client' },
     '@/plugins/ant-design',
     '@/plugins/font-awesome',
     '@/plugins/web-font/index',
@@ -93,10 +78,14 @@ const config: Configuration = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // baseURL: `${blogConfig.enableHTTPS ? 'https' : 'http'}://127.0.0.1:${blogConfig.port}`,
-    baseURL: 'https://skysun.name/',
-    browserBaseURL: '/'
+    // proxy: true,
+    baseURL: 'http://localhost:3001',
+    browserBaseURL: ''
+    // credentials: true
   },
+  // proxy: {
+  //   '/api': 'http://localhost:3001'
+  // },
   /*
    ** Build configuration
    */
