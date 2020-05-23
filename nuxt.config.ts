@@ -85,6 +85,7 @@ const config: Configuration = {
   /*
    ** Build configuration
    */
+  generate: {},
   build: {
     /*
      ** You can extend webpack config here
