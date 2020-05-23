@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Configuration } from "@nuxt/types/index";
 
 const config: Configuration = {
