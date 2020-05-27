@@ -4,12 +4,11 @@
       <div class="navbar">
         <div class="navbar-header">
           <a class="navbar-brand" href="/">
-            <img :src="settings.blogLogo">
+            <img :src="settings.blogLogo" />
             <h4>
-              {{ settings.blogName }}
-              <p v-if="settings.blogSlogan">
-                {{ settings.blogSlogan }}
-              </p>
+              <!-- {{ settings.blogName }} -->
+              老秦的技术日记
+              <p v-if="settings.blogSlogan">{{ settings.blogSlogan }}</p>
             </h4>
           </a>
         </div>
@@ -56,15 +55,15 @@
   </a-locale-provider>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
-import LayoutFooter from '@/components/LayoutFooter.vue';
-import { ISetting } from '@/types/schema';
+import Vue from "vue";
+import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
+import LayoutFooter from "@/components/LayoutFooter.vue";
+import { ISetting } from "@/types/schema";
 export default Vue.extend({
   components: {
     LayoutFooter
   },
-  data () {
+  data() {
     return {
       year: new Date().getFullYear(),
       settings: this.$store.state.settings as ISetting,
@@ -73,7 +72,7 @@ export default Vue.extend({
       showMenu: false
     };
   },
-  mounted () {
+  mounted() {
     // if (this.settings.enableStatistics && this.settings.statisticsKey) {
     //   const hm = document.createElement('script');
     //   hm.src = `https://hm.baidu.com/hm.js?${this.settings.statisticsKey}`;
@@ -83,24 +82,28 @@ export default Vue.extend({
     //   }
     // }
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        this.showToTop = true;
-      } else {
-        this.showToTop = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 300) {
+          this.showToTop = true;
+        } else {
+          this.showToTop = false;
+        }
+      },
+      {
+        passive: true
       }
-    }, {
-      passive: true
-    });
+    );
   },
   methods: {
-    toggleMenu () {
+    toggleMenu() {
       this.showMenu = !this.showMenu;
     },
-    hideMenu () {
+    hideMenu() {
       this.showMenu = false;
     },
-    toTop () {
+    toTop() {
       window.scrollTo(0, 0);
     }
   }
@@ -159,7 +162,7 @@ export default Vue.extend({
   display: none;
   padding: 4px 12px;
   color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #ccc;;
+  border: 1px solid #ccc;
   cursor: pointer;
   width: 56px;
   height: 40px;
@@ -274,11 +277,11 @@ export default Vue.extend({
   font-size: 22px;
   border-radius: 50%;
   color: #555;
-  opacity: .7;
+  opacity: 0.7;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .to-top.show-to-top {

@@ -75,7 +75,7 @@ const config: Configuration = {
    */
   axios: {
     // proxy: true,
-    baseURL: "http://192.168.31.63:3001",
+    baseURL: "http://121.37.159.49:3001",
     browserBaseURL: "",
     // credentials: true
   },

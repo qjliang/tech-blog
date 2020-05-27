@@ -1,7 +1,7 @@
 <template>
   <div class="layout-footer">
     {{ year }} © Powered by
-    <a>老秦的Blog</a>
+    <a>老秦的技术日记</a>
     <span v-if="settings.recordInfo" class="record-info">
       |
       <a href="http://www.beian.miit.gov.cn">{{ settings.recordInfo }}</a>
@@ -11,12 +11,12 @@
       <nuxt-link to="/admin">
         后台管理
       </nuxt-link>
-    </span> -->
+    </span>-->
   </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue';
+import Vue, { PropOptions } from "vue";
 export default Vue.extend({
   props: {
     showLogin: {
@@ -24,7 +24,7 @@ export default Vue.extend({
       default: false
     } as PropOptions<boolean>
   },
-  data () {
+  data() {
     return {
       year: new Date().getFullYear(),
       settings: this.$store.state.settings
