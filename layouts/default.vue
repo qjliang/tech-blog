@@ -4,7 +4,7 @@
       <div class="navbar">
         <div class="navbar-header">
           <a class="navbar-brand" href="/">
-            <img :src="settings.blogLogo" />
+            <img :src="settings.blogLogo">
             <h4>
               <!-- {{ settings.blogName }} -->
               老秦的技术日记
@@ -55,15 +55,15 @@
   </a-locale-provider>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
-import LayoutFooter from "@/components/LayoutFooter.vue";
-import { ISetting } from "@/types/schema";
+import Vue from 'vue';
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+import LayoutFooter from '@/components/LayoutFooter.vue';
+import { ISetting } from '@/types/schema';
 export default Vue.extend({
   components: {
     LayoutFooter
   },
-  data() {
+  data () {
     return {
       year: new Date().getFullYear(),
       settings: this.$store.state.settings as ISetting,
@@ -72,7 +72,7 @@ export default Vue.extend({
       showMenu: false
     };
   },
-  mounted() {
+  mounted () {
     // if (this.settings.enableStatistics && this.settings.statisticsKey) {
     //   const hm = document.createElement('script');
     //   hm.src = `https://hm.baidu.com/hm.js?${this.settings.statisticsKey}`;
@@ -83,7 +83,7 @@ export default Vue.extend({
     // }
 
     window.addEventListener(
-      "scroll",
+      'scroll',
       () => {
         if (window.scrollY > 300) {
           this.showToTop = true;
@@ -97,13 +97,13 @@ export default Vue.extend({
     );
   },
   methods: {
-    toggleMenu() {
+    toggleMenu () {
       this.showMenu = !this.showMenu;
     },
-    hideMenu() {
+    hideMenu () {
       this.showMenu = false;
     },
-    toTop() {
+    toTop () {
       window.scrollTo(0, 0);
     }
   }
